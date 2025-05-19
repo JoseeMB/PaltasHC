@@ -1,0 +1,40 @@
+/* src/components/AboutUsCard.css */
+
+.aboutus-card {
+  background: var(--color-surface);
+}
+
+.aboutus-card::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 130%;
+  background-image: linear-gradient(180deg, var(--color-primary), var(--color-secondary));
+  animation: rotate-border 3s linear infinite;
+  z-index: 0;
+}
+
+.aboutus-card::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  background: var(--color-surface);
+  border-radius: 15px;
+  z-index: 1;
+}
+
+.card-content {
+  z-index: 2;
+  position: relative;
+}
+
+/* Animación */
+@keyframes rotate-border {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

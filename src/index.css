@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+}
+:root {
+  --color-primary: #2cd665;
+  --color-primary-dark: #17ad49;
+  --color-secondary: #18F2B2;
+  --color-background: #f0f7f1;
+  --color-surface: #f1f5f9;
+  --color-text: #0d1321;
+  --color-muted: #788475;
+  --color-success: #157F1F;
+  --color-error: #DD1C1A;
+  --color-warning: #FDE74C;
+}
+
+/* Tema rojo */
+.theme-red {
+  --color-primary: #ff0000;
+  --color-secondary: #f472b6;
+  --color-background: #fff0f3;
+  --color-surface: #ffe4e6;
+  --color-text: #1f2937;
+  --color-muted: #9ca3af;
+}

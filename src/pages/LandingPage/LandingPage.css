@@ -1,0 +1,6 @@
+/* src/pages/LandingPage/LandingPage.css */
+.landing-container {
+  padding: 2rem;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
