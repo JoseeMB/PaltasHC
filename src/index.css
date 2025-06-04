@@ -21,6 +21,8 @@ html, body, #root {
   --color-success: #157F1F;
   --color-error: #DD1C1A;
   --color-warning: #FDE74C;
+  --color-palta: #5e9657;
+  --color-navbar: #f1f5f9;
 }
 
 /* Tema rojo */

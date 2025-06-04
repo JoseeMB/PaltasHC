@@ -1,4 +1,3 @@
-/* From Uiverse.io by wztd */ 
 .card {
   --background: #fff;
   --cardShadow: rgba(32,33,37,.1);
@@ -9,33 +8,31 @@
   --textColor: #202125;
   --linkColor: #1967d2;
   --ratingColor: #faab00;
+
+  display: flex;
+  flex-direction: row;
+  width: 750px;
+  height: 350px;
+  background: var(--background);
+  color: var(--textColor);
+  border: 1px solid var(--cardBorder);
+  box-shadow: 8px 8px 0 var(--cardShadow);
+  transition: box-shadow .5s, transform .5s;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
   .card {
-    --background: var(--color-primary-dark);
+    --background: var(--color-surface);
     --cardShadow: rgba(0,0,0,.28);
     --cardShadowHover: rgba(0,0,0,.16);
     --cardShadowActive: rgba(0,0,0,.55);
     --cardBorder: #202125;
     --cardBorderActive: var(--color-secondary);
-    --textColor: #e9eaee;
+    --textColor: #202125;
     --linkColor: #8ab4f8;
   }
-}
-
-.card {
-  width: 250px;
-  height: 350px;
-  aspect-ratio: 2/3;
-  background: var(--background);
-  color: var(--textColor);
-  border: 1px solid var(--cardBorder);
-  padding: 25px;
-  box-shadow: 8px 8px 0 var(--cardShadow);
-  transition: box-shadow .5s, transform .5s;
-  border-radius: 8px;
-  display: inline-block;
 }
 
 .card:hover {
@@ -49,44 +46,62 @@
   box-shadow: 4px 4px 0 var(--cardShadowActive);
 }
 
-.card > .icon,
-.card > .title,
-.card > .description {
+.card-left {
+  flex: 1;
+  max-width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.card-left img {
+  height: 90%;
+  border-radius: 8px;
+}
+
+.card-right {
+  flex: 1;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-right > .title,
+.card-right > .description,
+.card-right > .rating,
+.card-right > .link {
   margin-bottom: 0.7em;
   cursor: default;
   user-select: none;
 }
 
-.card > .title {
-  margin-top: 1.5em;
+.card-right > .title {
+  margin-top: 0.5em;
   font-weight: bold;
+  font-size: 1.5em;
 }
 
-.card > .description {
+.card-right > .description {
   line-height: 1.5em;
   min-height: 6em;
+  font-size: 1em;
 }
 
-.card > .icon {
-  font-size: 3em;
-  margin-bottom: .2em;
-  max-width: 40px;
-}
-
-.card > .rating {
+.card-right > .rating {
   font-size: 1.5em;
-  margin-bottom: 0.8em;
   color: var(--ratingColor);
   font-weight: bold;
   position: relative;
   width: max-content;
 }
 
-.card > .rating:before {
+.card-right > .rating:before {
   content: "☆☆☆☆☆";
 }
 
-.card > .rating:after {
+.card-right > .rating:after {
   content: "★★★★★";
   position: absolute;
   left: 0;
@@ -95,20 +110,44 @@
   overflow: hidden;
 }
 
-.card > .link {
-  margin-bottom: 1rem;
+.card-right > .link {
   color: var(--linkColor);
-  font-size: .8em;
+  font-size: .9em;
   font-weight: 600;
+  text-decoration: none;
 }
 
-.card > .link:after {
+.card-right > .link:after {
   content: "↗";
   display: inline-block;
   margin-left: .3em;
   transition: transform .3s ease-in-out;
 }
 
-.card:hover > .link:after {
+.card:hover .card-right > .link:after {
   transform: translate(.2em, -.2em);
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+  }
+
+  .card-left {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .card-left img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .card-right {
+    padding: 20px;
+  }
 }
